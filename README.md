@@ -1,5 +1,3 @@
-# nanaasare1979.github.io
-All About Asare Bediako
 <!DOCTYPE html>
 <html lang="en">
 <head>
