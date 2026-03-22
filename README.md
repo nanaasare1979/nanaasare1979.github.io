@@ -228,7 +228,7 @@ footer span{color:var(--green);}
     <p class="sec-sub">Connecting Technologists to Strategic Decision-Makers</p>
     <div class="about-grid">
       <div>
-        <img class="about-img" src="https://drive.google.com/thumbnail?id=10NU3TrsMUVn3q4Ev0puZCRCWUkc__H1v&sz=w400" alt="Asare Bediako" onerror="this.style.display='none';document.getElementById('ph').style.display='flex';">
+        <img class="about-img" src="Portfolio Pic 2.PNG" alt="Asare Bediako" onerror="this.style.display='none';document.getElementById('ph').style.display='flex';">
         <div class="about-placeholder" id="ph" style="display:none;">👤</div>
       </div>
       <div class="about-text">
