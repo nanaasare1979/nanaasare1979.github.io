@@ -7,40 +7,38 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --navy:#0B1F3A;
-  --navy2:#122a4a;
-  --green:#00C48C;
-  --green2:#00a876;
-  --light:#F4F9F7;
-  --white:#fff;
-  --gray:#5A6A7A;
-  --dark:#1A2B3C;
+  --navy:#0B1F3A;--navy2:#122a4a;--green:#00C48C;--green2:#00a876;
+  --light:#F4F9F7;--white:#fff;--gray:#5A6A7A;--dark:#1A2B3C;
 }
 html{scroll-behavior:smooth;}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--dark);background:var(--white);overflow-x:hidden;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--dark);background:var(--white);overflow-x:hidden;width:100%;min-width:0;}
 
 /* NAV */
-nav{position:fixed;top:0;width:100%;background:var(--navy);z-index:1000;padding:.9rem 0;border-bottom:2px solid var(--green);}
-nav .wrap{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;}
+nav{position:fixed;top:0;left:0;right:0;width:100%;background:var(--navy);z-index:1000;padding:.9rem 0;border-bottom:2px solid var(--green);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;}
 .logo{font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:1px;}
 .logo span{color:var(--green);}
-nav ul{list-style:none;display:flex;gap:1.8rem;}
+nav ul{list-style:none;display:flex;gap:1.8rem;margin:0;padding:0;}
 nav a{text-decoration:none;color:#CBD5E0;font-weight:500;font-size:.95rem;transition:color .3s;}
 nav a:hover{color:var(--green);}
 .mob-btn{display:none;background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--white);}
-.mob-menu{display:none;position:fixed;top:62px;left:0;width:100%;background:var(--navy2);z-index:999;}
-.mob-menu.active{display:block;}
-.mob-menu ul{list-style:none;padding:.5rem 0;}
+.mob-menu{display:none;position:fixed;top:62px;left:0;right:0;width:100%;background:var(--navy2);z-index:999;}
+.mob-menu.open{display:block;}
+.mob-menu ul{list-style:none;padding:.5rem 0;margin:0;}
 .mob-menu li{padding:.8rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);}
 .mob-menu a{color:#CBD5E0;text-decoration:none;font-weight:500;}
 
+/* WRAP */
+.wrap{max-width:1100px;margin:0 auto;padding:0 2rem;width:100%;}
+
 /* HERO */
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0d3a2e 100%);color:var(--white);display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 3rem;}
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0d3a2e 100%);color:var(--white);display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 3rem;width:100%;}
+.hero-inner{max-width:800px;margin:0 auto;}
 .hero-badge{display:inline-block;background:rgba(0,196,140,.15);border:1px solid var(--green);color:var(--green);padding:.35rem 1.1rem;border-radius:20px;font-size:.85rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.5rem;}
-.hero h1{font-size:3.8rem;font-weight:800;line-height:1.15;margin-bottom:1rem;letter-spacing:-.5px;}
+.hero h1{font-size:3.6rem;font-weight:800;line-height:1.15;margin-bottom:1rem;letter-spacing:-.5px;}
 .hero h1 span{color:var(--green);}
-.hero .tagline{font-size:1.2rem;color:#94A3B8;margin-bottom:1.5rem;font-weight:500;}
-.hero p{max-width:750px;margin:0 auto 2.5rem;line-height:1.85;color:#CBD5E0;font-size:1.05rem;}
+.tagline{font-size:1.2rem;color:#94A3B8;margin-bottom:1.5rem;font-weight:500;}
+.hero-desc{font-size:1.05rem;line-height:1.85;color:#CBD5E0;margin-bottom:2.5rem;}
 .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
 .btn{padding:.8rem 2rem;border-radius:6px;font-weight:700;font-size:.95rem;text-decoration:none;display:inline-block;transition:all .3s;cursor:pointer;border:none;}
 .btn-green{background:var(--green);color:var(--navy);}
@@ -49,64 +47,61 @@ nav a:hover{color:var(--green);}
 .btn-outline:hover{border-color:var(--green);color:var(--green);}
 
 /* SECTIONS */
-section{padding:5.5rem 0;}
+section{padding:5.5rem 0;width:100%;}
 section:nth-child(even){background:var(--light);}
-.wrap{max-width:1200px;margin:0 auto;padding:0 2rem;}
-.sec-title{text-align:center;font-size:2.4rem;font-weight:800;color:var(--navy);margin-bottom:.5rem;}
+.sec-title{text-align:center;font-size:2.3rem;font-weight:800;color:var(--navy);margin-bottom:.5rem;}
 .sec-line{width:60px;height:4px;background:var(--green);margin:.7rem auto 1rem;border-radius:2px;}
 .sec-sub{text-align:center;color:var(--gray);font-size:1.05rem;margin-bottom:3rem;}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:center;}
-.about-img-wrap{position:relative;}
-.about-img{width:260px;height:260px;border-radius:16px;object-fit:cover;display:block;border:4px solid var(--green);box-shadow:0 12px 40px rgba(0,0,0,.15);}
-.about-img-placeholder{width:260px;height:260px;border-radius:16px;background:linear-gradient(135deg,var(--navy),var(--navy2));display:flex;align-items:center;justify-content:center;font-size:5rem;border:4px solid var(--green);}
+.about-img{width:250px;height:250px;border-radius:16px;object-fit:cover;display:block;border:4px solid var(--green);box-shadow:0 12px 40px rgba(0,0,0,.15);}
+.about-placeholder{width:250px;height:250px;border-radius:16px;background:linear-gradient(135deg,var(--navy),var(--navy2));display:flex;align-items:center;justify-content:center;font-size:5rem;border:4px solid var(--green);}
 .about-text p{margin-bottom:1rem;line-height:1.85;color:var(--gray);}
-.about-stats{display:flex;gap:2rem;margin-top:1.5rem;flex-wrap:wrap;}
-.stat{text-align:center;}
+.stats-row{display:flex;gap:2rem;margin-top:1.5rem;flex-wrap:wrap;}
 .stat .num{font-size:2rem;font-weight:800;color:var(--green);}
 .stat .lbl{font-size:.8rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
 
 /* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .skill-card{background:var(--white);padding:1.8rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.07);border-top:4px solid var(--green);transition:transform .3s;}
 .skill-card:hover{transform:translateY(-5px);}
 .skill-card h3{color:var(--navy);margin-bottom:1.2rem;font-size:1.1rem;}
 .skill-item{display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem;color:var(--dark);font-size:.95rem;}
-.skill-dot{width:8px;height:8px;background:var(--green);border-radius:50%;flex-shrink:0;}
+.skill-dot{width:8px;height:8px;min-width:8px;background:var(--green);border-radius:50%;}
 
 /* TIMELINE */
-.timeline{position:relative;max-width:880px;margin:0 auto;}
+.timeline{position:relative;max-width:860px;margin:0 auto;}
 .timeline::before{content:'';position:absolute;left:50%;transform:translateX(-50%);width:2px;height:100%;background:linear-gradient(to bottom,var(--green),var(--navy));}
-.tl-item{margin-bottom:2.5rem;position:relative;}
-.tl-item:nth-child(odd) .tl-box{margin-right:calc(50% + 28px);}
-.tl-item:nth-child(even) .tl-box{margin-left:calc(50% + 28px);}
-.tl-dot{position:absolute;left:50%;transform:translateX(-50%);width:14px;height:14px;background:var(--green);border-radius:50%;border:3px solid var(--white);box-shadow:0 0 0 3px var(--green);top:12px;}
-.tl-box{background:var(--white);padding:1.5rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.08);border-left:3px solid var(--green);}
+.tl-item{margin-bottom:2.5rem;position:relative;display:flex;}
+.tl-item:nth-child(odd){justify-content:flex-start;}
+.tl-item:nth-child(even){justify-content:flex-end;}
+.tl-dot{position:absolute;left:50%;transform:translateX(-50%);width:14px;height:14px;background:var(--green);border-radius:50%;border:3px solid var(--white);box-shadow:0 0 0 3px var(--green);top:14px;z-index:2;}
+.tl-box{width:calc(50% - 30px);background:var(--white);padding:1.5rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.08);border-left:3px solid var(--green);}
 .tl-box h3{color:var(--navy);font-size:1.05rem;margin-bottom:.3rem;}
 .tl-company{color:var(--green);font-weight:700;font-size:.9rem;margin-bottom:.2rem;}
 .tl-date{color:var(--gray);font-size:.82rem;margin-bottom:.8rem;}
-.tl-box ul{list-style:none;color:var(--gray);font-size:.92rem;}
+.tl-box ul{list-style:none;color:var(--gray);font-size:.92rem;padding:0;margin:0;}
 .tl-box li{padding-left:1.2rem;position:relative;margin-bottom:.45rem;}
 .tl-box li::before{content:'▸';position:absolute;left:0;color:var(--green);}
 
 /* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:2rem;}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
 .proj-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;}
 .proj-card:hover{transform:translateY(-8px);box-shadow:0 12px 35px rgba(0,0,0,.15);}
 .proj-head{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:1.8rem;}
-.proj-head h3{color:var(--white);font-size:1.2rem;margin-bottom:.4rem;}
+.proj-head h3{color:var(--white);font-size:1.15rem;margin-bottom:.4rem;}
 .proj-date{color:var(--green);font-size:.85rem;font-weight:600;}
 .proj-body{padding:1.8rem;}
 .proj-role{background:var(--light);border-left:3px solid var(--green);padding:.5rem .9rem;margin-bottom:1rem;font-weight:700;color:var(--navy);font-size:.88rem;border-radius:0 6px 6px 0;}
 .proj-body p{color:var(--gray);margin-bottom:1rem;line-height:1.8;font-size:.95rem;}
-.proj-body ul{list-style:none;color:var(--dark);font-size:.92rem;}
+.proj-body ul{list-style:none;color:var(--dark);font-size:.92rem;padding:0;margin:0;}
 .proj-body li{padding-left:1.3rem;position:relative;margin-bottom:.55rem;}
 .proj-body li::before{content:'✦';position:absolute;left:0;color:var(--green);font-size:.75rem;}
 
 /* EDUCATION */
-.edu-grid{display:grid;gap:1.5rem;max-width:880px;margin:0 auto;}
-.edu-item{background:var(--white);padding:1.8rem;border-radius:12px;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.edu-grid{display:grid;gap:1.5rem;max-width:860px;margin:0 auto;}
+.edu-item{background:var(--white);padding:1.8rem;border-radius:12px;display:grid;grid-template-columns:56px 1fr;gap:1.5rem;align-items:start;box-shadow:0 4px 20px rgba(0,0,0,.07);}
 .edu-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--navy),var(--green));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
 .edu-item h3{color:var(--navy);font-size:1.05rem;margin-bottom:.3rem;}
 .edu-school{color:var(--green);font-weight:700;font-size:.9rem;margin-bottom:.2rem;}
@@ -114,7 +109,7 @@ section:nth-child(even){background:var(--light);}
 .edu-item p{color:var(--gray);font-size:.9rem;line-height:1.6;}
 
 /* AWARDS */
-.awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;}
+.awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;max-width:860px;margin:0 auto;}
 .award-card{background:var(--white);padding:2rem;border-radius:14px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.07);border-bottom:4px solid var(--green);transition:transform .3s;}
 .award-card:hover{transform:scale(1.04);}
 .award-icon{font-size:3.5rem;margin-bottom:1rem;}
@@ -123,12 +118,12 @@ section:nth-child(even){background:var(--light);}
 .award-card p{color:var(--gray);font-size:.9rem;line-height:1.6;}
 
 /* CONTACT */
-.contact-wrap{max-width:800px;margin:0 auto;text-align:center;}
+.contact-wrap{max-width:820px;margin:0 auto;text-align:center;}
 .contact-wrap>p{color:var(--gray);font-size:1.05rem;line-height:1.8;margin-bottom:2rem;}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;margin-top:2rem;}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem;}
 .contact-card{background:var(--white);padding:1.5rem 1rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .3s;}
 .contact-card:hover{transform:translateY(-4px);}
-.contact-card .icon{font-size:2rem;margin-bottom:.7rem;}
+.c-icon{font-size:2rem;margin-bottom:.7rem;}
 .contact-card h4{color:var(--navy);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem;}
 .contact-card a,.contact-card p{color:var(--green);font-size:.88rem;font-weight:600;text-decoration:none;word-break:break-word;}
 .contact-card a:hover{text-decoration:underline;}
@@ -137,37 +132,52 @@ section:nth-child(even){background:var(--light);}
 footer{background:var(--navy);color:#94A3B8;text-align:center;padding:2rem 0;font-size:.9rem;}
 footer span{color:var(--green);}
 
-/* ANIM */
+/* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{animation:fadeUp .6s ease both;}
 
+/* PRINT */
+@media print{
+  nav,.mob-btn,.mob-menu,.cta-row{display:none!important;}
+  .hero{min-height:auto;padding:2rem;}
+  section{padding:2rem 0;page-break-inside:avoid;}
+}
+
 /* RESPONSIVE */
+@media(max-width:900px){
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .proj-grid{grid-template-columns:1fr;}
+  .awards-grid{grid-template-columns:1fr;}
+}
 @media(max-width:768px){
   nav ul{display:none;}
   .mob-btn{display:block;}
   .hero h1{font-size:2.4rem;}
   .about-grid{grid-template-columns:1fr;text-align:center;}
-  .about-img,.about-img-placeholder{margin:0 auto;}
-  .about-stats{justify-content:center;}
-  .timeline::before{left:0;}
-  .tl-item:nth-child(odd) .tl-box,.tl-item:nth-child(even) .tl-box{margin-left:28px;margin-right:0;}
-  .tl-dot{left:0;transform:none;}
-  .proj-grid{grid-template-columns:1fr;}
-  .cta-row{flex-direction:column;align-items:center;}
-  .btn{width:220px;text-align:center;}
+  .about-img,.about-placeholder{margin:0 auto;}
+  .stats-row{justify-content:center;}
+  .timeline::before{left:16px;}
+  .tl-item{flex-direction:column;justify-content:flex-start!important;}
+  .tl-box{width:100%;margin-left:40px!important;margin-right:0!important;}
+  .tl-dot{left:16px;transform:none;}
+  .contact-grid{grid-template-columns:repeat(2,1fr);}
+  .skills-grid{grid-template-columns:1fr;}
 }
 @media(max-width:480px){
   .hero h1{font-size:2rem;}
-  section{padding:3.5rem 0;}
-  .sec-title{font-size:2rem;}
+  section{padding:3rem 0;}
+  .sec-title{font-size:1.9rem;}
   .edu-item{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .cta-row .btn{width:100%;text-align:center;}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="wrap">
+  <div class="nav-inner">
     <div class="logo">A<span>B</span></div>
     <button class="mob-btn" id="mobBtn">☰</button>
     <ul>
@@ -182,26 +192,26 @@ footer span{color:var(--green);}
 </nav>
 <div class="mob-menu" id="mobMenu">
   <ul>
-    <li><a href="#about" class="mob-link">About</a></li>
-    <li><a href="#skills" class="mob-link">Skills</a></li>
-    <li><a href="#experience" class="mob-link">Experience</a></li>
-    <li><a href="#projects" class="mob-link">Projects</a></li>
-    <li><a href="#education" class="mob-link">Education</a></li>
-    <li><a href="#contact" class="mob-link">Contact</a></li>
+    <li><a href="#about" class="mlink">About</a></li>
+    <li><a href="#skills" class="mlink">Skills</a></li>
+    <li><a href="#experience" class="mlink">Experience</a></li>
+    <li><a href="#projects" class="mlink">Projects</a></li>
+    <li><a href="#education" class="mlink">Education</a></li>
+    <li><a href="#contact" class="mlink">Contact</a></li>
   </ul>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-inner">
     <div class="hero-badge">Available for Opportunities</div>
     <h1>Asare <span>Bediako</span></h1>
     <p class="tagline">Informatics Professional &nbsp;·&nbsp; Project Manager &nbsp;·&nbsp; Technology Leader</p>
-    <p>Results-driven Master's candidate at Northeastern University with extensive experience in ICT coordination, data analysis, and project management. I bridge the gap between technology and strategic decision-making, leading cross-functional teams to deliver high-impact solutions using Agile methodologies.</p>
+    <p class="hero-desc">Results-driven Master's candidate at Northeastern University with extensive experience in ICT coordination, data analysis, and project management. I bridge the gap between technology and strategic decision-making, leading cross-functional teams to deliver high-impact solutions using Agile methodologies.</p>
     <div class="cta-row">
       <a href="#contact" class="btn btn-green">Get In Touch</a>
       <a href="https://drive.google.com/uc?export=download&id=1ZgbqrGOqhopg_Rjz8O7xSfzoiQFf_KvS" class="btn btn-outline" download>📄 Download Resume</a>
-      <button onclick="downloadPortfolio()" class="btn btn-outline">💾 Save as PDF</button>
+      <button onclick="savePDF()" class="btn btn-outline">💾 Save as PDF</button>
       <a href="#projects" class="btn btn-outline">View Projects</a>
     </div>
   </div>
@@ -214,15 +224,15 @@ footer span{color:var(--green);}
     <div class="sec-line"></div>
     <p class="sec-sub">Connecting Technologists to Strategic Decision-Makers</p>
     <div class="about-grid">
-      <div class="about-img-wrap">
-        <img class="about-img" src="https://drive.google.com/thumbnail?id=10NU3TrsMUVn3q4Ev0puZCRCWUkc__H1v&sz=w400" alt="Asare Bediako" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="about-img-placeholder" style="display:none;">👤</div>
+      <div>
+        <img class="about-img" src="https://drive.google.com/thumbnail?id=10NU3TrsMUVn3q4Ev0puZCRCWUkc__H1v&sz=w400" alt="Asare Bediako" onerror="this.style.display='none';document.getElementById('ph').style.display='flex';">
+        <div class="about-placeholder" id="ph" style="display:none;">👤</div>
       </div>
       <div class="about-text">
         <p>I am a results-based Informatics professional and Master's candidate at Northeastern University, Toronto. With many years of experience in ICT coordination, data analysis, and project management, I connect technologists to strategic decision-makers.</p>
         <p>I am experienced in using Agile methodologies in high-impact projects such as AI model research and cybersecurity analysis. As a stakeholder-focused leader, I thrive in leading diverse and cross-functional teams and effectively translating complex technical concepts for non-technical audiences.</p>
         <p>My expertise spans project management, healthcare informatics, data analytics, and technology integration in educational settings. I am passionate about leveraging technology to drive organizational efficiency and deliver measurable impact.</p>
-        <div class="about-stats">
+        <div class="stats-row">
           <div class="stat"><div class="num">9+</div><div class="lbl">Years Experience</div></div>
           <div class="stat"><div class="num">2</div><div class="lbl">Major Awards</div></div>
           <div class="stat"><div class="num">4</div><div class="lbl">Roles Held</div></div>
@@ -448,11 +458,11 @@ footer span{color:var(--green);}
       <p>I'm always open to discussing new opportunities, collaborations, or just connecting with fellow professionals in the informatics and technology space.</p>
       <a href="https://drive.google.com/uc?export=download&id=1ZgbqrGOqhopg_Rjz8O7xSfzoiQFf_KvS" class="btn btn-green" download style="font-size:1rem;padding:1rem 2.5rem;">📄 Download My Resume</a>
       <div class="contact-grid">
-        <div class="contact-card"><div class="icon">📧</div><h4>School Email</h4><a href="mailto:bediako.a@northeastern.edu">bediako.a@northeastern.edu</a></div>
-        <div class="contact-card"><div class="icon">✉️</div><h4>Personal Email</h4><a href="mailto:nanaasare79@yahoo.com">nanaasare79@yahoo.com</a></div>
-        <div class="contact-card"><div class="icon">📱</div><h4>Phone</h4><a href="tel:6473364003">647 336 4003</a></div>
-        <div class="contact-card"><div class="icon">📍</div><h4>Location</h4><p>Toronto, ON, Canada</p></div>
-        <div class="contact-card"><div class="icon">🔗</div><h4>LinkedIn</h4><a href="https://linkedin.com/in/asare-bediako" target="_blank">Connect on LinkedIn</a></div>
+        <div class="contact-card"><div class="c-icon">📧</div><h4>School Email</h4><a href="mailto:bediako.a@northeastern.edu">bediako.a@northeastern.edu</a></div>
+        <div class="contact-card"><div class="c-icon">✉️</div><h4>Personal Email</h4><a href="mailto:nanaasare79@yahoo.com">nanaasare79@yahoo.com</a></div>
+        <div class="contact-card"><div class="c-icon">📱</div><h4>Phone</h4><a href="tel:6473364003">647 336 4003</a></div>
+        <div class="contact-card"><div class="c-icon">📍</div><h4>Location</h4><p>Toronto, ON, Canada</p></div>
+        <div class="contact-card"><div class="c-icon">🔗</div><h4>LinkedIn</h4><a href="https://linkedin.com/in/asare-bediako" target="_blank">Connect on LinkedIn</a></div>
       </div>
     </div>
   </div>
@@ -466,13 +476,27 @@ footer span{color:var(--green);}
 </footer>
 
 <script>
-const mobBtn=document.getElementById('mobBtn'),mobMenu=document.getElementById('mobMenu');
-mobBtn.addEventListener('click',()=>{mobMenu.classList.toggle('active');mobBtn.textContent=mobMenu.classList.contains('active')?'✕':'☰';});
-document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',()=>{mobMenu.classList.remove('active');mobBtn.textContent='☰';}));
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
+// Mobile menu
+const btn=document.getElementById('mobBtn'),menu=document.getElementById('mobMenu');
+btn.addEventListener('click',()=>{menu.classList.toggle('open');btn.textContent=menu.classList.contains('open')?'✕':'☰';});
+document.querySelectorAll('.mlink').forEach(l=>l.addEventListener('click',()=>{menu.classList.remove('open');btn.textContent='☰';}));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+}));
+
+// Fade-in on scroll
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('fade-up');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('section').forEach(s=>obs.observe(s));
-function downloadPortfolio(){alert('To save as PDF:\n\nDesktop: Press Ctrl+P (Win) or Cmd+P (Mac) → Save as PDF\nMobile: Share → Print → Save as PDF');setTimeout(()=>window.print(),500);}
+
+// Save as PDF
+function savePDF(){
+  alert('To save as PDF:\n\nDesktop: Press Ctrl+P (Win) or Cmd+P (Mac)\n→ Change destination to "Save as PDF"\n→ Click Save\n\nMobile: Tap Share → Print → Save as PDF');
+  setTimeout(()=>window.print(),600);
+}
 </script>
 </body>
 </html>
