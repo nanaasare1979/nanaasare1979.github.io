@@ -18,9 +18,9 @@ nav{position:fixed;top:0;left:0;right:0;width:100%;background:var(--navy);z-inde
 .nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;}
 .logo{font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:1px;}
 .logo span{color:var(--green);}
-nav ul{list-style:none;display:flex;gap:1.8rem;margin:0;padding:0;}
-nav a{text-decoration:none;color:#CBD5E0;font-weight:500;font-size:.95rem;transition:color .3s;}
-nav a:hover{color:var(--green);}
+nav ul{list-style:none;display:flex;gap:1.8rem;margin:0;padding:0;align-items:center;}
+nav ul li a{text-decoration:none;color:#CBD5E0;font-weight:500;font-size:.95rem;transition:color .3s;}
+nav ul li a:hover{color:var(--green);}
 .mob-btn{display:none;background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--white);}
 .mob-menu{display:none;position:fixed;top:62px;left:0;right:0;width:100%;background:var(--navy2);z-index:999;}
 .mob-menu.open{display:block;}
@@ -175,7 +175,6 @@ footer span{color:var(--green);}
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <div class="logo">A<span>B</span></div>
@@ -201,7 +200,6 @@ footer span{color:var(--green);}
   </ul>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge">Available for Opportunities</div>
@@ -217,7 +215,6 @@ footer span{color:var(--green);}
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="wrap">
     <h2 class="sec-title">About Me</h2>
@@ -242,7 +239,6 @@ footer span{color:var(--green);}
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
     <h2 class="sec-title">Skills & Expertise</h2>
@@ -280,7 +276,6 @@ footer span{color:var(--green);}
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrap">
     <h2 class="sec-title">Professional Experience</h2>
@@ -344,7 +339,6 @@ footer span{color:var(--green);}
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
     <h2 class="sec-title">Featured Projects</h2>
@@ -387,7 +381,6 @@ footer span{color:var(--green);}
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
   <div class="wrap">
     <h2 class="sec-title">Education</h2>
@@ -425,7 +418,6 @@ footer span{color:var(--green);}
   </div>
 </section>
 
-<!-- AWARDS -->
 <section id="awards">
   <div class="wrap">
     <h2 class="sec-title">Recognition & Honors</h2>
@@ -448,7 +440,6 @@ footer span{color:var(--green);}
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
     <h2 class="sec-title">Get In Touch</h2>
@@ -476,23 +467,16 @@ footer span{color:var(--green);}
 </footer>
 
 <script>
-// Mobile menu
 const btn=document.getElementById('mobBtn'),menu=document.getElementById('mobMenu');
 btn.addEventListener('click',()=>{menu.classList.toggle('open');btn.textContent=menu.classList.contains('open')?'✕':'☰';});
 document.querySelectorAll('.mlink').forEach(l=>l.addEventListener('click',()=>{menu.classList.remove('open');btn.textContent='☰';}));
-
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
   e.preventDefault();
   const t=document.querySelector(a.getAttribute('href'));
   if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
 }));
-
-// Fade-in on scroll
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('fade-up');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('section').forEach(s=>obs.observe(s));
-
-// Save as PDF
 function savePDF(){
   alert('To save as PDF:\n\nDesktop: Press Ctrl+P (Win) or Cmd+P (Mac)\n→ Change destination to "Save as PDF"\n→ Click Save\n\nMobile: Tap Share → Print → Save as PDF');
   setTimeout(()=>window.print(),600);
