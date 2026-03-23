@@ -202,6 +202,7 @@ footer span{color:var(--green);}
 
 <section class="hero">
   <div class="hero-inner">
+    <img src="https://lh3.googleusercontent.com/d/1uXFo55MuuV5VQnzrdVDuhnc-h927VJYy" alt="Asare Bediako" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid var(--green);box-shadow:0 0 0 4px rgba(0,196,140,.2);margin-bottom:1.2rem;">
     <div class="hero-badge">Available for Opportunities</div>
     <h1>Asare <span>Bediako</span></h1>
     <p class="tagline">Informatics Professional &nbsp;·&nbsp; Project Manager &nbsp;·&nbsp; Technology Leader</p>
