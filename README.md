@@ -32,15 +32,19 @@ nav ul li a:hover{color:var(--green);}
 .wrap{max-width:1100px;margin:0 auto;padding:0 2rem;width:100%;}
 
 /* HERO */
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0d3a2e 100%);color:var(--white);display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 3rem;width:100%;}
-.hero-inner{max-width:800px;margin:0 auto;}
-.hero-badge{display:inline-block;background:rgba(0,196,140,.15);border:1px solid var(--green);color:var(--green);padding:.35rem 1.1rem;border-radius:20px;font-size:.85rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.5rem;}
-.hero h1{font-size:3.6rem;font-weight:800;line-height:1.15;margin-bottom:1rem;letter-spacing:-.5px;}
-.hero h1 span{color:var(--green);}
-.tagline{font-size:1.2rem;color:#94A3B8;margin-bottom:1.5rem;font-weight:500;}
-.hero-desc{font-size:1.05rem;line-height:1.85;color:#CBD5E0;margin-bottom:2.5rem;}
-.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.btn{padding:.8rem 2rem;border-radius:6px;font-weight:700;font-size:.95rem;text-decoration:none;display:inline-block;transition:all .3s;cursor:pointer;border:none;}
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#0d3a2e 100%);color:var(--white);display:flex;align-items:center;justify-content:center;padding:7rem 2rem 3rem;width:100%;}
+.hero-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;}
+.hero-badge{display:inline-block;background:rgba(0,196,140,.15);border:1px solid var(--green);color:var(--green);padding:.35rem 1.1rem;border-radius:20px;font-size:.82rem;font-weight:700;letter-spacing:.5px;}
+.hero-name-row{display:flex;align-items:center;gap:1.8rem;}
+.hero-photo-ring{width:110px;height:110px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--green),#0d3a2e 60%,var(--green));box-shadow:0 0 0 4px rgba(0,196,140,.15),0 8px 30px rgba(0,0,0,.35);flex-shrink:0;}
+.hero-photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--navy2);}
+.hero-inner h1{font-size:3.8rem;font-weight:800;line-height:1.1;letter-spacing:-.5px;}
+.hero-inner h1 span{color:var(--green);}
+.tagline{font-size:1.1rem;color:#94A3B8;margin-bottom:.3rem;font-weight:500;line-height:1.5;}
+.hero-divider{width:50px;height:3px;background:var(--green);border-radius:2px;margin-bottom:.5rem;}
+.hero-desc{font-size:1rem;line-height:1.85;color:#CBD5E0;margin-bottom:.5rem;max-width:750px;}
+.cta-row{display:flex;gap:.8rem;flex-wrap:wrap;}
+.btn{padding:.8rem 1.6rem;border-radius:6px;font-weight:700;font-size:.92rem;text-decoration:none;display:inline-block;transition:all .3s;cursor:pointer;border:none;}
 .btn-green{background:var(--green);color:var(--navy);}
 .btn-green:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,196,140,.35);}
 .btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.4);}
@@ -152,7 +156,12 @@ footer span{color:var(--green);}
 @media(max-width:768px){
   nav ul{display:none;}
   .mob-btn{display:block;}
-  .hero h1{font-size:2.4rem;}
+  .hero-inner{align-items:center;text-align:center;}
+  .hero-name-row{flex-direction:column;align-items:center;gap:1rem;}
+  .hero-inner h1{font-size:2.4rem;text-align:center;}
+  .hero-divider{margin:0 auto .5rem;}
+  .tagline,.hero-desc{text-align:center;}
+  .cta-row{justify-content:center;}
   .about-grid{grid-template-columns:1fr;text-align:center;}
   .about-img,.about-placeholder{margin:0 auto;}
   .stats-row{justify-content:center;}
@@ -164,12 +173,13 @@ footer span{color:var(--green);}
   .skills-grid{grid-template-columns:1fr;}
 }
 @media(max-width:480px){
-  .hero h1{font-size:2rem;}
+  .hero-text-col h1{font-size:2rem;}
   section{padding:3rem 0;}
   .sec-title{font-size:1.9rem;}
   .edu-item{grid-template-columns:1fr;}
   .contact-grid{grid-template-columns:1fr;}
   .cta-row .btn{width:100%;text-align:center;}
+  .hero-photo-ring{width:160px;height:160px;}
 }
 </style>
 </head>
@@ -200,34 +210,41 @@ footer span{color:var(--green);}
   </ul>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <img src="https://lh3.googleusercontent.com/d/1uXFo55MuuV5VQnzrdVDuhnc-h927VJYy" alt="Asare Bediako" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid var(--green);box-shadow:0 0 0 4px rgba(0,196,140,.2);margin-bottom:1.2rem;">
     <div class="hero-badge">Available for Opportunities</div>
-    <h1>Asare <span>Bediako</span></h1>
+    <div class="hero-name-row">
+      <div class="hero-photo-ring">
+        <img src="https://lh3.googleusercontent.com/d/1uXFo55MuuV5VQnzrdVDuhnc-h927VJYy" alt="Asare Bediako">
+      </div>
+      <h1>Asare <span>Bediako</span></h1>
+    </div>
+    <div class="hero-divider"></div>
     <p class="tagline">Informatics Professional &nbsp;·&nbsp; Project Manager &nbsp;·&nbsp; Technology Leader</p>
     <p class="hero-desc">Results-driven Master's candidate at Northeastern University with extensive experience in ICT coordination, data analysis, and project management. I bridge the gap between technology and strategic decision-making, leading cross-functional teams to deliver high-impact solutions using Agile methodologies.</p>
     <div class="cta-row">
-      <a href="#contact" class="btn btn-green">Get In Touch</a>
-      <div style="position:relative;display:inline-block;">
-        <button onclick="toggleMenu('resumeMenu')" class="btn btn-outline" id="resumeBtn">📄 Download/Print Resume</button>
-        <div id="resumeMenu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);overflow:hidden;min-width:200px;z-index:999;">
-          <a href="https://drive.google.com/uc?export=download&id=1ZgbqrGOqhopg_Rjz8O7xSfzoiQFf_KvS" download style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:.6rem;text-decoration:none;background:#fff;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">📥 Download as PDF</a>
-          <div onclick="printCopy()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">🖨️ Print a Copy</div>
+        <a href="#contact" class="btn btn-green">Get In Touch</a>
+        <div style="position:relative;display:inline-block;">
+          <button onclick="toggleMenu('resumeMenu')" class="btn btn-outline" id="resumeBtn">📄 Resume ▾</button>
+          <div id="resumeMenu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);overflow:hidden;min-width:190px;z-index:999;">
+            <a href="https://drive.google.com/uc?export=download&id=1ZgbqrGOqhopg_Rjz8O7xSfzoiQFf_KvS" download style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:.6rem;text-decoration:none;background:#fff;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">📥 Download PDF</a>
+            <div onclick="printCopy()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">🖨️ Print a Copy</div>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;display:inline-block;">
-        <button onclick="toggleMenu('portfolioMenu')" class="btn btn-outline" id="portfolioBtn">💾 Download/Print Portfolio</button>
-        <div id="portfolioMenu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);overflow:hidden;min-width:200px;z-index:999;">
-          <div onclick="saveAsPDF()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">📥 Download as PDF</div>
-          <div onclick="printCopy()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">🖨️ Print a Copy</div>
+        <div style="position:relative;display:inline-block;">
+          <button onclick="toggleMenu('portfolioMenu')" class="btn btn-outline" id="portfolioBtn">💾 Portfolio ▾</button>
+          <div id="portfolioMenu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);overflow:hidden;min-width:190px;z-index:999;">
+            <div onclick="saveAsPDF()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">📥 Download PDF</div>
+            <div onclick="printCopy()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">🖨️ Print a Copy</div>
+          </div>
         </div>
+        <a href="#projects" class="btn btn-outline">View Projects</a>
       </div>
-      <a href="#projects" class="btn btn-outline">View Projects</a>
-    </div>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="wrap">
     <h2 class="sec-title">About Me</h2>
@@ -252,6 +269,7 @@ footer span{color:var(--green);}
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
     <h2 class="sec-title">Skills & Expertise</h2>
@@ -289,6 +307,7 @@ footer span{color:var(--green);}
   </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrap">
     <h2 class="sec-title">Professional Experience</h2>
@@ -352,6 +371,7 @@ footer span{color:var(--green);}
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
     <h2 class="sec-title">Featured Projects</h2>
@@ -394,6 +414,7 @@ footer span{color:var(--green);}
   </div>
 </section>
 
+<!-- EDUCATION -->
 <section id="education">
   <div class="wrap">
     <h2 class="sec-title">Education</h2>
@@ -431,6 +452,7 @@ footer span{color:var(--green);}
   </div>
 </section>
 
+<!-- AWARDS -->
 <section id="awards">
   <div class="wrap">
     <h2 class="sec-title">Recognition & Honors</h2>
@@ -453,6 +475,7 @@ footer span{color:var(--green);}
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
     <h2 class="sec-title">Get In Touch</h2>
@@ -471,7 +494,7 @@ footer span{color:var(--green);}
           <input id="cf-email" type="email" placeholder="Email address" style="width:100%;padding:.9rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--white);font-size:.95rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,.12)'">
           <input id="cf-subject" type="text" placeholder="Subject" style="width:100%;padding:.9rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--white);font-size:.95rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,.12)'">
           <textarea id="cf-message" placeholder="Your message" rows="5" style="width:100%;padding:.9rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--white);font-size:.95rem;outline:none;font-family:inherit;resize:vertical;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,.12)'"></textarea>
-          <button onclick="sendMessage()" style="padding:.9rem 2rem;background:var(--green);color:var(--navy);border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;transition:background .3s;font-family:inherit;text-align:left;width:fit-content;" onmouseover="this.style.background='var(--green2)'" onmouseout="this.style.background='var(--green)'">Send message →</button>
+          <button onclick="sendMessage()" style="padding:.9rem 2rem;background:var(--green);color:var(--navy);border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;font-family:inherit;width:fit-content;" onmouseover="this.style.background='var(--green2)'" onmouseout="this.style.background='var(--green)'">Send message →</button>
           <p id="cf-status" style="color:var(--green);font-size:.9rem;display:none;"></p>
         </div>
       </div>
@@ -506,11 +529,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('fade-up');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('section').forEach(s=>obs.observe(s));
 function toggleMenu(id){
-  const menus=['resumeMenu','portfolioMenu'];
-  menus.forEach(m=>{
+  ['resumeMenu','portfolioMenu'].forEach(m=>{
     const el=document.getElementById(m);
-    if(m===id){el.style.display=el.style.display==='none'?'block':'none';}
-    else{el.style.display='none';}
+    el.style.display=(m===id && el.style.display==='none')?'block':'none';
   });
 }
 function saveAsPDF(){
@@ -518,19 +539,33 @@ function saveAsPDF(){
   alert('In the print dialog:\n1. Set Destination to "Save as PDF"\n2. Click Save');
   setTimeout(()=>window.print(),400);
 }
-function printCopy(){
-  document.getElementById('resumeMenu').style.display='none';
-  document.getElementById('portfolioMenu').style.display='none';
+function printCopy(menuId){
+  if(menuId) document.getElementById(menuId).style.display='none';
   setTimeout(()=>window.print(),400);
 }
 document.addEventListener('click',e=>{
   ['resumeBtn','resumeMenu','portfolioBtn','portfolioMenu'].forEach(id=>{
     const el=document.getElementById(id);
-    if(el&&!el.contains(e.target)){
-      if(id==='resumeMenu'||id==='portfolioMenu') el.style.display='none';
-    }
+    if(el && !el.contains(e.target) && (id==='resumeMenu'||id==='portfolioMenu')) el.style.display='none';
   });
 });
+async function sendMessage(){
+  const n=document.getElementById('cf-name').value.trim(),
+        em=document.getElementById('cf-email').value.trim(),
+        s=document.getElementById('cf-subject').value.trim(),
+        m=document.getElementById('cf-message').value.trim(),
+        st=document.getElementById('cf-status');
+  if(!n||!em||!s||!m){st.style.display='block';st.style.color='#f87171';st.textContent='⚠️ Please fill in all fields.';return;}
+  st.style.display='block';st.style.color='#94A3B8';st.textContent='Sending…';
+  try{
+    const fd=new FormData();
+    fd.append('name',n);fd.append('email',em);fd.append('subject',s);fd.append('message',m);
+    const r=await fetch('https://formspree.io/f/mojkolbz',{method:'POST',body:fd,headers:{Accept:'application/json'}});
+    if(r.ok){st.style.color='var(--green)';st.textContent='✅ Message sent! I\'ll get back to you soon.';
+      ['cf-name','cf-email','cf-subject','cf-message'].forEach(id=>document.getElementById(id).value='');}
+    else{st.style.color='#f87171';st.textContent='❌ Something went wrong. Please try again.';}
+  }catch{st.style.color='#f87171';st.textContent='❌ Network error. Please try again.';}
+}
 </script>
 </body>
 </html>
