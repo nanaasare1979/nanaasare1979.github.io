@@ -208,12 +208,18 @@ footer span{color:var(--green);}
     <p class="hero-desc">Results-driven Master's candidate at Northeastern University with extensive experience in ICT coordination, data analysis, and project management. I bridge the gap between technology and strategic decision-making, leading cross-functional teams to deliver high-impact solutions using Agile methodologies.</p>
     <div class="cta-row">
       <a href="#contact" class="btn btn-green">Get In Touch</a>
-      <a href="https://drive.google.com/uc?export=download&id=1ZgbqrGOqhopg_Rjz8O7xSfzoiQFf_KvS" class="btn btn-outline" download>📄 Download Resume</a>
       <div style="position:relative;display:inline-block;">
-        <button onclick="toggleMenu()" class="btn btn-outline" id="printBtn">🖨️ Save / Print</button>
-        <div id="printMenu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);overflow:hidden;min-width:180px;z-index:999;">
-          <div onclick="saveAsPDF()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:.6rem;transition:background .2s;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">💾 Save as PDF</div>
-          <div onclick="printCopy()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.6rem;transition:background .2s;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">🖨️ Print a Copy</div>
+        <button onclick="toggleMenu('resumeMenu')" class="btn btn-outline" id="resumeBtn">📄 Download/Print Resume</button>
+        <div id="resumeMenu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);overflow:hidden;min-width:200px;z-index:999;">
+          <a href="https://drive.google.com/uc?export=download&id=1ZgbqrGOqhopg_Rjz8O7xSfzoiQFf_KvS" download style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:.6rem;text-decoration:none;background:#fff;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">📥 Download as PDF</a>
+          <div onclick="printCopy()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">🖨️ Print a Copy</div>
+        </div>
+      </div>
+      <div style="position:relative;display:inline-block;">
+        <button onclick="toggleMenu('portfolioMenu')" class="btn btn-outline" id="portfolioBtn">💾 Download/Print Portfolio</button>
+        <div id="portfolioMenu" style="display:none;position:absolute;top:110%;left:0;background:#fff;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);overflow:hidden;min-width:200px;z-index:999;">
+          <div onclick="saveAsPDF()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">📥 Download as PDF</div>
+          <div onclick="printCopy()" style="padding:.9rem 1.2rem;cursor:pointer;color:#0B1F3A;font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.6rem;" onmouseover="this.style.background='#F4F9F7'" onmouseout="this.style.background='#fff'">🖨️ Print a Copy</div>
         </div>
       </div>
       <a href="#projects" class="btn btn-outline">View Projects</a>
@@ -483,22 +489,31 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 }));
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('fade-up');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('section').forEach(s=>obs.observe(s));
-function toggleMenu(){
-  const m=document.getElementById('printMenu');
-  m.style.display=m.style.display==='none'?'block':'none';
+function toggleMenu(id){
+  const menus=['resumeMenu','portfolioMenu'];
+  menus.forEach(m=>{
+    const el=document.getElementById(m);
+    if(m===id){el.style.display=el.style.display==='none'?'block':'none';}
+    else{el.style.display='none';}
+  });
 }
 function saveAsPDF(){
-  document.getElementById('printMenu').style.display='none';
+  document.getElementById('portfolioMenu').style.display='none';
   alert('In the print dialog:\n1. Set Destination to "Save as PDF"\n2. Click Save');
   setTimeout(()=>window.print(),400);
 }
 function printCopy(){
-  document.getElementById('printMenu').style.display='none';
+  document.getElementById('resumeMenu').style.display='none';
+  document.getElementById('portfolioMenu').style.display='none';
   setTimeout(()=>window.print(),400);
 }
 document.addEventListener('click',e=>{
-  const btn=document.getElementById('printBtn'),menu=document.getElementById('printMenu');
-  if(!btn.contains(e.target)&&!menu.contains(e.target))menu.style.display='none';
+  ['resumeBtn','resumeMenu','portfolioBtn','portfolioMenu'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&!el.contains(e.target)){
+      if(id==='resumeMenu'||id==='portfolioMenu') el.style.display='none';
+    }
+  });
 });
 </script>
 </body>
