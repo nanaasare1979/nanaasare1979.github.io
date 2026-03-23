@@ -523,25 +523,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('fade-up');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('section').forEach(s=>obs.observe(s));
 function toggleMenu(id){
-  ['resumeMenu','portfolioMenu'].forEach(m=>{
-    const el=document.getElementById(m);
-    el.style.display=(m===id && el.style.display==='none')?'block':'none';
-  });
+  const target=document.getElementById(id);
+  const other=id==='resumeMenu'?'portfolioMenu':'resumeMenu';
+  document.getElementById(other).style.display='none';
+  target.style.display=target.style.display==='block'?'none':'block';
 }
 function saveAsPDF(){
   document.getElementById('portfolioMenu').style.display='none';
-  alert('In the print dialog:\n1. Set Destination to "Save as PDF"\n2. Click Save');
-  setTimeout(()=>window.print(),400);
+  setTimeout(()=>{
+    window.print();
+  },300);
 }
 function printCopy(menuId){
   if(menuId) document.getElementById(menuId).style.display='none';
-  setTimeout(()=>window.print(),400);
+  setTimeout(()=>window.print(),300);
 }
-document.addEventListener('click',e=>{
-  ['resumeBtn','resumeMenu','portfolioBtn','portfolioMenu'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el && !el.contains(e.target) && (id==='resumeMenu'||id==='portfolioMenu')) el.style.display='none';
-  });
+document.addEventListener('click',function(e){
+  const ids=['resumeBtn','resumeMenu','portfolioBtn','portfolioMenu'];
+  const clickedInside=ids.some(id=>{const el=document.getElementById(id);return el&&el.contains(e.target);});
+  if(!clickedInside){
+    document.getElementById('resumeMenu').style.display='none';
+    document.getElementById('portfolioMenu').style.display='none';
+  }
 });
 async function sendMessage(){
   const n=document.getElementById('cf-name').value.trim(),
