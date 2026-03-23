@@ -461,6 +461,21 @@ footer span{color:var(--green);}
     <div class="contact-wrap">
       <p>I'm always open to discussing new opportunities, collaborations, or just connecting with fellow professionals in the informatics and technology space.</p>
       <a href="https://drive.google.com/uc?export=download&id=1ZgbqrGOqhopg_Rjz8O7xSfzoiQFf_KvS" class="btn btn-green" download style="font-size:1rem;padding:1rem 2.5rem;">📄 Download My Resume</a>
+
+      <!-- Contact Form -->
+      <div style="background:var(--navy);border-radius:16px;padding:2.5rem;margin:2.5rem 0;text-align:left;">
+        <p style="color:var(--green);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem;">— Get In Touch</p>
+        <h3 style="color:var(--white);font-size:1.8rem;font-weight:800;margin-bottom:1.5rem;">Send Me a Message</h3>
+        <div style="display:grid;gap:1rem;">
+          <input id="cf-name" type="text" placeholder="Your name" style="width:100%;padding:.9rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--white);font-size:.95rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,.12)'">
+          <input id="cf-email" type="email" placeholder="Email address" style="width:100%;padding:.9rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--white);font-size:.95rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,.12)'">
+          <input id="cf-subject" type="text" placeholder="Subject" style="width:100%;padding:.9rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--white);font-size:.95rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,.12)'">
+          <textarea id="cf-message" placeholder="Your message" rows="5" style="width:100%;padding:.9rem 1.1rem;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:var(--white);font-size:.95rem;outline:none;font-family:inherit;resize:vertical;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='rgba(255,255,255,.12)'"></textarea>
+          <button onclick="sendMessage()" style="padding:.9rem 2rem;background:var(--green);color:var(--navy);border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;transition:background .3s;font-family:inherit;text-align:left;width:fit-content;" onmouseover="this.style.background='var(--green2)'" onmouseout="this.style.background='var(--green)'">Send message →</button>
+          <p id="cf-status" style="color:var(--green);font-size:.9rem;display:none;"></p>
+        </div>
+      </div>
+
       <div class="contact-grid">
         <div class="contact-card"><div class="c-icon">📧</div><h4>School Email</h4><a href="mailto:bediako.a@northeastern.edu">bediako.a@northeastern.edu</a></div>
         <div class="contact-card"><div class="c-icon">✉️</div><h4>Personal Email</h4><a href="mailto:nanaasare79@yahoo.com">nanaasare79@yahoo.com</a></div>
