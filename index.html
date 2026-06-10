@@ -543,6 +543,11 @@ function printResume(){
   var w = window.open('resume.pdf');
   w.onload = function(){ w.print(); };
 }
+function printResume(){
+  document.getElementById('resumeMenu').style.display='none';
+  var w = window.open('resume.pdf');
+  w.onload = function(){ w.print(); };
+}
 document.addEventListener('click',function(e){
   const ids=['resumeBtn','resumeMenu','portfolioBtn','portfolioMenu'];
   const clickedInside=ids.some(id=>{const el=document.getElementById(id);return el&&el.contains(e.target);});
